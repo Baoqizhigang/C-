@@ -15,7 +15,9 @@
 int main() {
 	int n, digit; // 声明了两个整型变量 n 和 digit
 	scanf("%d", &n);//scanf 函数用于从标准输入读取一个整数，并将其存储在变量 n 中。& 符号表示取变量的地址
-	digit = printf("%d", n);//printf 函数用于输出变量 n 的值，并返回输出的字符数。这个返回值被存储在变量 digit 中。
+	// printf 函数会输出变量 n 的值到屏幕上。
+	// printf 函数会返回输出的字符数，并将其存储在变量 digit 中。
+	digit = printf("%d", n);
 	printf(" has %d digit(s)\n", digit);// %d 占位符将被变量 digit 的值替换
 	return 0;
 }
