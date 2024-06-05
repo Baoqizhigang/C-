@@ -1,16 +1,28 @@
 /*************************************************************************
-	> File Name: 11.digit.c
-	> Author: huguang
-	> Mail: hug@haizeix.com
-	> Created Time:
+	> 二进制表示：
+			计算机以二进制形式存储数据。每个整数在内存中表示为一串二进制位（0和1）。
+			print_digit 函数展示了如何逐位打印一个整数的二进制表示。
+	> 位运算：
+			按位与（&）：只有两个对应的位都为1时结果才为1，否则为0。
+			按位或（|）：只要两个对应的位有一个为1，结果就为1。
+			按位异或（^）：只有两个对应的位不同时结果才为1。
+			按位取反（~）：将所有位取反，0变1，1变0。
+			左移（<<）：将所有位左移指定位数，右边补0。
+			右移（>>）：将所有位右移指定位数，左边补符号位（对于有符号数）。
+	> 补码表示：
+			负数在计算机中以补码形式存储。补码是将数字按位取反加1。
+			例如，~b + 1 就是 b 的补码表示。
+	> 位操作交换变量：
+			a ^= b; b ^= a; a ^= b; 这一行代码使用按位异或操作实现两个变量的值交换，而不使用临时变量。
  ************************************************************************/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
-void print_digit(int x) {  // print_digit 函数用于打印一个整数的二进制表示。
-	for (int i = 31; i >= 0; i--) {
-		printf("%c", (x & (1 << i)) ? '1' : '0');
+void print_digit(int x) {           // print_digit 函数用于打印一个整数的二进制表示。
+	for (int i = 31; i >= 0; i--) { // 从31开始循环到0，因为我们假设这是一个32位整数。
+		// 下面这段代码使用位运算检查整数 x 的第 i 位是1还是0，并输出相应的字符。
+		printf("%c", (x & (1 << i)) ? '1' : '0'); //x & (1 << i) 将 x 与一个只有第 i 位为1的数进行按位与操作。如果结果不为0，则第 i 位为1，否则为0。
 	}
 	printf("\n");
 	return ;
@@ -18,31 +30,34 @@ void print_digit(int x) {  // print_digit 函数用于打印一个整数的二�
 
 int main() {
 	int a = 5, b = 3;
-	printf("a = "); print_digit(a);
+	// printf()是格式输出函数，它的功能就是在屏幕上输出指定的信息. 
+	printf("a = "); print_digit(a);//调用 print_digit 函数打印变量 a  的二进制表示。
 	printf("b = "); print_digit(b);
+	// 以下三行代码打印 a 和 b 的按位与（&）、按位或（|）、按位异或（^）的结果的二进制表示
 	printf("a & b = "); print_digit(a & b);
 	printf("a | b = "); print_digit(a | b);
 	printf("a ^ b = "); print_digit(a ^ b);
-	a ^= b; b ^= a; a ^= b;
+	a ^= b; b ^= a; a ^= b; //使用按位异或（XOR）操作交换 a 和 b 的值。这是一种无需临时变量交换两个变量值的方法
+	// 打印交换后的 a 和 b 的二进制表示。
 	printf("a = "); print_digit(a);
 	printf("b = "); print_digit(b);
-	printf("~a = "); print_digit(~a);
-	printf("(~b + 1) = %d\n", ~b + 1);
-	int x;
-	scanf("%d", &x);
-	printf("x = "); print_digit(x);
-	printf("(-x & x) = "); print_digit(-x & x);
-	int c = 1279813123, d = -c;
+	printf("~a = "); print_digit(~a);//打印 a 的按位取反（~）的结果的二进制表示。
+	printf("(~b + 1) = %d\n", ~b + 1);//打印 b 的按位取反加1的结果（这是 b 的二进制补码表示）。
+	int x; //声明一个整型变量 x
+	scanf("%d", &x); //从标准输入读取一个整数 x。
+	printf("x = "); print_digit(x); // 打印 x 的二进制表示。
+	printf("(-x & x) = "); print_digit(-x & x); //打印 -x & x 的二进制表示。这通常用于获取 x 的最低有效位（LSB）。
+	int c = 1279813123, d = -c; //声明并初始化两个整型变量 c 和 d，其中 d 为 c 的负值。
 	printf("c = "); print_digit(c);
 	printf("d = "); print_digit(d);
+	// 打印 c 左移一位（<< 1）、右移一位（>> 1）的二进制表示。
 	printf("c << 1 = "); print_digit(c << 1);
 	printf("c >> 1 = "); print_digit(c >> 1);
 	printf("d << 1 = "); print_digit(d << 1);
 	printf("d >> 1 = "); print_digit(d >> 1);
-	printf("a = %d, b = %d\n", a, b);
-	printf("a << 1 = %d, b >> 1 = %d\n", a << 1, b >> 1);
-	printf("-5 / 2 = %d, (-5) >> 1 = %d\n", -5 / 2, (-5) >> 1);
-	printf("-5 / 2 = %d, (-5) >> 1 = %d\n", -5 / 2, (-5) >> 1);
+	printf("a = %d, b = %d\n", a, b); //打印交换后 a 和 b 的值。
+	printf("a << 1 = %d, b >> 1 = %d\n", a << 1, b >> 1); // 打印 a 左移一位和 b 右移一位的结果值。
+	printf("-5 / 2 = %d, (-5) >> 1 = %d\n", -5 / 2, (-5) >> 1); //打印 - 5 除以 2 和 - 5 右移一位的结果值。
 	return 0;
 }
 
