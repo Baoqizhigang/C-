@@ -15,7 +15,7 @@ int main() {
 	int a, b, c;
 	scanf("%d%d", &a, &b);
 	if (a < b) printf("YES\n");
-	else printf("YES\n");
+	else printf("NO\n");
 
 	//如果 a < b 为真，执行大括号 {} 内的语句; 如果 a < b 为假，跳过大括号 {} 内的所有语句
 	if (a < b) {
