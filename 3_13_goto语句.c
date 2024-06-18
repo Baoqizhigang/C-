@@ -11,9 +11,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 
-
-#include<stdio.h>
-
 int main() {
 	// 程序直接跳转到 lab_1 标签所在的位置，跳过中间的 printf("hello world\n"); 语句。
 	goto lab_1; //  label 是一个标识符, 用来定义标签的位置，表示代码中要跳转的位
