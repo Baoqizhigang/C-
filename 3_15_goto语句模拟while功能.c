@@ -10,3 +10,21 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+
+int main() {
+	int n, i = 1;
+	scanf("%d", &n);
+
+judge: // 定义标签 judge，用于标记代码位置。
+	if (i <= n) goto stmt; // 如果条件为真（即 i <= n），则执行 goto stmt; 跳转到 stmt 标签。
+	else goto while_end; // 如果条件为假（即 i > n），则执行 goto while_end; 跳转到 while_end 标签。
+
+stmt:
+	printf("%d", i); // 输出当前 i 的值。
+	i += 1; // 将 i 的值增加 1
+	goto judge; // 程序直接跳转到 judge 标签所在的位置。
+
+while_end:
+	printf("\n");
+	return 0;
+}
