@@ -10,3 +10,23 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    // 如果 n 是偶数，跳转到 if_stmt 标签, 否则跳转到 else_stmt 标签。
+    // ({ goto if_stmt; 1; }) 是一个 GCC 语法扩展，表示一个代码块，执行 goto if_stmt; 语句，然后返回 1。
+    // && 是逻辑与运算符，前面的条件为真时，才会执行后面的表达式。
+    n % 2 == 0 && ({ goto if_stmt; 1; });
+    !(n % 2 == 0) && ({ goto else_stmt; 1; });
+if_stmt: // 定义标签 if_stmt，用于标记代码位置，后跟一个冒号。
+    printf("%d is even\n", n);
+    goto if_end; // 跳转到 if_end 标签，跳过中间的 else_stmt 部分
+else_stmt:
+    printf("%d is odd\n", n);
+if_end:
+    return 0;
+}
