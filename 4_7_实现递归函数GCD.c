@@ -23,10 +23,21 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+
 int gcd(int a, int b) {
 	if (b == 0) return a; // 递归终止条件是 b == 0，此时返回 a。
 	return gcd(b, a % b);
 }
+
+/*
+int gcd(int a, int b) {
+	while (b != 0) {
+		a = b;
+		b = a % b;
+	}
+	return a;
+}
+*/
 
 int main() {
 	int a, b;
