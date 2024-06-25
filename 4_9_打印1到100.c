@@ -30,26 +30,28 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
+// 递归打印从 1 到 n 的所有整数，每次打印一个数
 void print(int n) {
-	if (n == 1) {
+	if (n == 1) { // 如果 n 等于 1，打印 1 并返回。
 		printf("%d\n", n);
 		return;
 	}
-	printf(n - 1);
-	printf("%d\n", n);
-	return;
+	printf(n - 1); //递归调用 print 函数，传入 n - 1
+	printf("%d\n", n); //递归调用返回后，打印当前的 n
+	return; //函数结束
 }
 
 int cnt = 1001;
 
+// 递归调用自身，并在每次调用时打印 main : n，直到 cnt 等于 1。
 int main() {
-	int n = cnt;
-	cnt -= 1;
-	if (n == 1) {
+	int n = cnt; //将全局变量 cnt 的值赋给局部变量 n。
+	cnt -= 1; // 将全局变量 cnt 减 1。
+	if (n == 1) { //如果 n 等于 1，打印 main : n,
 		printf("main : %d\n", n);
-		return 0;
+		return 0; // 函数结束。
 	}
-	main();
+	main(); //递归调用 main 函数
 	printf("main : %d\n", n);
-	return 0;
+	return 0; // 函数结束。
 }
