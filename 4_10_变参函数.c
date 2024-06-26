@@ -19,7 +19,7 @@
 
 #include <stdio.h>
 #include <stdarg.h> // 这个头文件定义了一组宏，使函数能够访问可变参数列表。
-#include <inttypes.h>
+#include <inttypes.h> // provide a standardized set of integer types and macros for input/output operations
 
 // 接收一个可变参数列表，返回这些参数中的最大值。
 int max_int(int n, ...) { // n 是一个整型变量，表示后续参数的个数。... 表示可变参数。
