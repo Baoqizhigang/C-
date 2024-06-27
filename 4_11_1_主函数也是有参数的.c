@@ -10,7 +10,7 @@
 #include <stdio.h> // 包含标准输入输出库，提供 printf 函数。
 #include <string.h> // 包含字符串处理库，提供 strcmp 函数
 
-int main(int argc, char* argv[]) {// int argc：表示命令行参数的数量。char *argv[]：是一个数组，存储命令行参数的字符串。
+int main(int argc, char *argv[]) {// int argc：表示命令行参数的数量。char *argv[]：是一个数组，存储命令行参数的字符串。
 	// 检查程序的名称是否为 ./bilibili,  != 0：如果两者不相等，则打印错误信息并退出程序
 	if (strcmp(argv[0], "./bilibili") != 0) { // argv[0]：通常是程序的名称或路径。
 		printf("wrong call, please call : ./bilibili\n");
