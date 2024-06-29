@@ -1,13 +1,34 @@
-#include<stdio.h>
+/*************************************************************************
+题目描述
+​ 输入两个正整数m和n，求他们的最大公约数。
+
+输入
+一行两个正整数m和n，用一个空格隔开，2≤m，n≤10000。
+
+输出
+ 一行一个正整数，表示m和n的最大公约数。
+
+样例输入
+24 36
+
+样例输出
+12
+
+> 递归调用：
+	函数 f 通过递归计算 n 的阶乘。
+	每次调用 f(n) 时，函数会调用自身，计算 f(n-1)，直到 n 等于 1
+ ************************************************************************/
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h> 
 
 int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
+	if (b == 0) return a; // 检查 b 是否为 0, 如果是，返回 a。这表示 a 是 a 和 b 的最大公约数（GCD）。
+	return gcd(b, a % b); // 归调用 gcd 函数，传入参数 b 和 a % b。这是欧几里得算法的核心步骤，通过反复调用自身来计算 GCD。
 }
 
 int main() {
-    int a, b;
-    scanf("%d%d", &a, &b);
-    printf("%d\n", gcd(a, b));
-    return 0;
+	int a, b;
+	scanf("%d%d", &a, &b);
+	printf("%d\n", gcd(a, b));
+	return 0;
 }
