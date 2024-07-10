@@ -4,20 +4,19 @@
 > 递归和组合生成：该程序通过递归生成组合，展示了如何使用递归和数组来生成特定的数字组合。
  ************************************************************************/
 
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <queue>
-#include <stack>
-#include <algorithm>
-#include <string>
-#include <map>
-#include <set>
-#include <vector>
-using namespace std;
+#include <iostream> // 提供输入输出流功能，常用的 cin 和 cout。
+#include <cstdio> // 提供 C 标准输入输出功能，如 printf 和 scanf
+#include <cstdlib> // 提供 C 标准库功能，如动态内存分配和程序控制。
+#include <queue> // 提供队列数据结构。
+#include <stack> // 提供栈数据结构。
+#include <algorithm> // 提供算法功能，如排序、查找。
+#include <string> // 提供字符串类 std::string。
+#include <map> // 提供关联容器 std::map
+#include <set> // 提供集合容器 std::set。
+#include <vector> // 提供动态数组容器 std::vector。
+using namespace std; // 使用标准命名空间，简化代码编写，不需要在标准库前加 std::
 
-
-int arr[10];
+int arr[10]; // 声明一个大小为 10 的整型数组 arr，用于存储组合的元素。
 
 // 打印数组 arr 中的前 n+1 个元素。
 void print_one_result(int n) {
